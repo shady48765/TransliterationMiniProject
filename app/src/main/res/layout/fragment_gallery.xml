@@ -1,23 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment" >
+    android:background="#FFFFFF"
+    >
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+<TextView
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="20dp"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:padding="5dp"
+    android:text="Some Useful Websites"
+    android:id="@+id/useful"
+    />
+    <View
+        android:id="@+id/horizontalline2"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:background="#c0c0c0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/useful"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalline2"
+        android:layout_marginTop="75dp"
+        android:textSize="17dp"
+        android:text="IIT profs video lectures"
+        android:fontFamily="casual"
+        android:id="@+id/iitprof"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iitprof"
+        android:layout_marginTop="12dp"
+        android:textSize="15dp"
+        android:text="https://nptel.ac.in/"
+        android:textColor="#111E6c"
+        android:fontFamily="casual"
+        android:id="@+id/iitlink"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iitlink"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        android:text="Science Kit Online"
+        android:fontFamily="casual"
+        android:id="@+id/kit"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kit"
+        android:layout_marginTop="12dp"
+        android:textSize="15dp"
+        android:text="https://vigyanprasar.gov.in/"
+        android:textColor="#111E6c"
+        android:fontFamily="casual"
+        android:id="@+id/kitlink"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kitlink"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        android:text="One Nation, One Script"
+        android:fontFamily="casual"
+        android:id="@+id/onescript"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onescript"
+        android:layout_marginTop="12dp"
+        android:textSize="15dp"
+        android:text="https://www.bharatiscript.com/"
+        android:textColor="#111E6c"
+        android:fontFamily="casual"
+        android:id="@+id/onelink"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:id="@+id/creatortital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="About Creator"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="275dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/horizontalline"
+        android:layout_width="185dp"
+        android:layout_height="1dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creatortital" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/squareaman"
+        app:civ_border_color="#000000"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/whatsapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/amantext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalline"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Aman Kumar"
+        android:fontFamily="casual"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/telegram"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/telegram"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/instagram"
+        app:layout_constraintStart_toEndOf="@+id/github"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+    <ImageView
+        android:id="@+id/email"
+        android:autoLink="email"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/whatsapp"
+        app:layout_constraintTop_toTopOf="@+id/whatsapp"
+        android:src="@drawable/email"/>
+
+    <ImageView
+        android:id="@+id/linkedinaman"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/linked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/github"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+    <ImageView
+        android:id="@+id/github"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/github"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/telegram"
+        app:layout_constraintStart_toEndOf="@+id/linkedinaman"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+    <ImageView
+        android:id="@+id/whatsapp"
+        android:layout_width="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintTop_toBottomOf="@+id/amantext"
+        android:src="@drawable/whats"
+        android:autoLink="phone" />
+    <ImageView
+        android:id="@+id/instagram"
+        android:layout_width="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/telegram"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+        android:src="@drawable/instagram"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

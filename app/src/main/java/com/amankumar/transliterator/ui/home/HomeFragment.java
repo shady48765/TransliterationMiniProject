@@ -4,12 +4,15 @@ import android.content.Context;
 import android.icu.text.Transliterator;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -36,7 +39,7 @@ public class HomeFragment extends Fragment {
     EditText text;
     Button submit;
     Spinner spinner;
-    ListView listView;
+    GridView listView;
     ArrayList<LanguageDetails> arrayListDetails = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment {
         submit = root.findViewById(R.id.button);
         spinner = root.findViewById(R.id.spinner);
         listView = root.findViewById(R.id.list_item);
+        final Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
         final ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Latin");
         arrayList.add("Devanagari");
@@ -56,12 +60,16 @@ public class HomeFragment extends Fragment {
         arrayList.add("Telugu");
         arrayList.add("Kannada");
         arrayList.add("Malayalam");
+
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arrayList);
         spinner.setAdapter(arrayAdapter);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             public void onClick(View v) {
+                vib.vibrate(200);
                 arrayListDetails.clear();
                 for(int i = 0;i<arrayList.size();i++){
                     if(!(arrayList.get(i).equals(spinner.getSelectedItem().toString()))) {

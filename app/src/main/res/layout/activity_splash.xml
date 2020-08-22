@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <com.airbnb.lottie.LottieAnimationView
     android:layout_width="350dp"
@@ -13,5 +14,22 @@
     app:lottie_rawRes="@raw/namaste"
     android:id="@+id/lottie_namaste"
     app:lottie_autoPlay="true"
+    app:layout_constraintVertical_bias="0.2"
     />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="60dp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_namaste"
+        android:id="@+id/lottie_lady"
+        android:text="NAMASTE"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

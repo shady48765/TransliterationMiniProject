@@ -8,6 +8,7 @@
 
     <Spinner
         android:id="@+id/spinner"
+        android:elevation="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
@@ -16,10 +17,14 @@
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
 
     <EditText
+        android:hint="Enter"
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:ems="10"
+        android:textCursorDrawable="@drawable/side_nav_bar"
+        android:textColor="@color/colorPrimary"
         android:inputType="textPersonName"
         app:layout_constraintVertical_bias="0.2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +32,8 @@
         app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <GridView
+        android:numColumns="1"
         android:id="@+id/list_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="SUBMIT"
+        android:background="#080402"
+        android:textColor="#f8f4f2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
