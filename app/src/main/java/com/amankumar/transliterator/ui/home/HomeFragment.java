@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
     EditText text;
     Button submit;
     Spinner spinner;
-    GridView listView;
+    ListView listView;
     ArrayList<LanguageDetails> arrayListDetails = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
