@@ -31,7 +31,9 @@ import com.amankumar.transliterator.MainActivity;
 import com.amankumar.transliterator.MainActivity2;
 import com.amankumar.transliterator.R;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HomeFragment extends Fragment {
 
@@ -52,7 +54,8 @@ public class HomeFragment extends Fragment {
         listView = root.findViewById(R.id.list_item);
         final Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
         final ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Latin");
+        final ArrayList<String> arrayListog = new ArrayList<>();
+        arrayList.add("English");
         arrayList.add("Devanagari");
         arrayList.add("Bengali");
         arrayList.add("Gujarati");
@@ -60,7 +63,20 @@ public class HomeFragment extends Fragment {
         arrayList.add("Telugu");
         arrayList.add("Kannada");
         arrayList.add("Malayalam");
-
+        arrayList.add("Oriya");
+        arrayList.add("Arabic");
+        arrayList.add("Punjabi");
+        arrayListog.add("Latin");
+        arrayListog.add("Devanagari");
+        arrayListog.add("Bengali");
+        arrayListog.add("Gujarati");
+        arrayListog.add("Tamil");
+        arrayListog.add("Telugu");
+        arrayListog.add("Kannada");
+        arrayListog.add("Malayalam");
+        arrayListog.add("Oriya");
+       arrayListog.add("Arabic");
+       arrayListog.add("GURMUKHI");
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arrayList);
         spinner.setAdapter(arrayAdapter);
@@ -72,33 +88,34 @@ public class HomeFragment extends Fragment {
                 vib.vibrate(200);
                 arrayListDetails.clear();
                 for(int i = 0;i<arrayList.size();i++){
-                    if(!(arrayList.get(i).equals(spinner.getSelectedItem().toString()))) {
+                    if(!(arrayListog.get(i).equals(arrayListog.get(spinner.getSelectedItemPosition())))) {
                         LanguageDetails languageDetails = new LanguageDetails();
-
-                        if (spinner.getSelectedItem().toString().equals("Latin")&&!arrayList.get(i).equals("Latin")){
+                        if (arrayListog.get(spinner.getSelectedItemPosition()).equals("Latin")&&!arrayListog.get(i).equals("Latin")){
                             languageDetails.language = arrayList.get(i).concat(" : ");
-                            final String LatintoLang2 = "Latin-" + arrayList.get(i);
+                            final String LatintoLang2 = "Latin-" + arrayListog.get(i);
                             final Transliterator transliteratortoLang2 = Transliterator.getInstance(LatintoLang2);
                             final String lang2 = transliteratortoLang2.transliterate(text.getText().toString());
                             languageDetails.transliterated = lang2;
                             arrayListDetails.add(languageDetails);
                         }
-                        else if (!spinner.getSelectedItem().toString().equals("Latin")&&!arrayList.get(i).equals("Latin")){
+                        else if (!arrayListog.get(spinner.getSelectedItemPosition()).equals("Latin")&&!arrayListog.get(i).equals("Latin")){
                             languageDetails.language = arrayList.get(i).concat(" : ");
-                            final String Lang1toLatin = spinner.getSelectedItem().toString().concat("-Latin");
+                            final String Lang1toLatin = arrayListog.get(spinner.getSelectedItemPosition()).concat("-Latin");
                             final Transliterator transliteratortoLatin = Transliterator.getInstance(Lang1toLatin);
                             final String latin = transliteratortoLatin.transliterate(text.getText().toString());
-                            final String LatintoLang2 = "Latin-" + arrayList.get(i);
+                            final String LatintoLang2 = "Latin-" + arrayListog.get(i);
                             final Transliterator transliteratortoLang2 = Transliterator.getInstance(LatintoLang2);
                             final String lang2 = transliteratortoLang2.transliterate(latin);
                             languageDetails.transliterated = lang2;
                             arrayListDetails.add(languageDetails);
                         }
-                        else if (!spinner.getSelectedItem().toString().equals("Latin")&&arrayList.get(i).equals("Latin")){
+                        else if (!arrayListog.get(spinner.getSelectedItemPosition()).equals("Latin")&&arrayListog.get(i).equals("Latin")){
                             languageDetails.language = arrayList.get(i).concat(" : ");
-                            final String Lang1toLatin = spinner.getSelectedItem().toString().concat("-Latin");
+                            final String Lang1toLatin = arrayListog.get(spinner.getSelectedItemPosition()).concat("-Latin");
                             final Transliterator transliteratortoLatin = Transliterator.getInstance(Lang1toLatin);
-                            final String latin = transliteratortoLatin.transliterate(text.getText().toString());
+                            String latin = transliteratortoLatin.transliterate(text.getText().toString());
+                            latin = Normalizer.normalize(latin, Normalizer.Form.NFD);
+                            latin = latin.replaceAll("[^\\p{ASCII}]", "");
                             languageDetails.transliterated = latin;
                             arrayListDetails.add(languageDetails);
                         }

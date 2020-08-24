@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:textColor="#121212"
-        android:text="Bharati Transliteration"
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
