@@ -34,7 +34,7 @@ public class GalleryFragment extends Fragment {
             0, 0, 0, 1.0f, 0
     };
     ImageView whatsapp , email , linkedin , githubaman , telegram , instaaman;
-    TextView link1,link2,link3;
+    TextView link1,link2,link3,link4;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
@@ -69,6 +69,18 @@ public class GalleryFragment extends Fragment {
 
         link3 = root.findViewById(R.id.onelink);
         link3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vib.vibrate(200);
+
+                Toast.makeText(getContext(),"Please Wait!",Toast.LENGTH_SHORT).show();
+                Intent httpIntent = new Intent(Intent.ACTION_VIEW);
+                httpIntent.setData(Uri.parse(link3.getText().toString()));
+                startActivity(httpIntent);
+            }
+        });
+        link4 = root.findViewById(R.id.scilink);
+        link4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 vib.vibrate(200);

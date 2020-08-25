@@ -4,13 +4,18 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    bundle{
+        language{
+            enableSplit = false
+        }
+    }
+
     defaultConfig {
         applicationId "com.amankumar.transliterator"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -20,7 +25,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
