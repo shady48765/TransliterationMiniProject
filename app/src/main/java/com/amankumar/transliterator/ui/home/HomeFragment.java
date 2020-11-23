@@ -1,6 +1,7 @@
 package com.amankumar.transliterator.ui.home;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.icu.text.Transliterator;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -42,6 +45,7 @@ public class HomeFragment extends Fragment {
     Button submit;
     Spinner spinner;
     ListView listView;
+    String toSearch;
     ArrayList<LanguageDetails> arrayListDetails = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -85,6 +89,7 @@ public class HomeFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             public void onClick(View v) {
+                toSearch=text.getText().toString();
                 vib.vibrate(200);
                 arrayListDetails.clear();
                 for(int i = 0;i<arrayList.size();i++){
@@ -145,6 +150,17 @@ public class HomeFragment extends Fragment {
                                         clipboard.setPrimaryClip(clip);
                                         Toast.makeText(getContext(),"Copied",Toast.LENGTH_LONG).show();
                                     }
+
+                                    SharedPreferences prefs = getContext().getSharedPreferences("Copied", MODE_PRIVATE);
+                                    int idName = prefs.getInt("index", 0);
+                                    idName++;
+                                    SharedPreferences.Editor editor = getContext().getSharedPreferences("Copied", MODE_PRIVATE).edit();
+
+                                    editor.putString("original"+String.valueOf(idName),toSearch);
+                                    editor.putString("text"+String.valueOf(idName), text.getText().toString());
+                                    editor.putInt("index", idName);
+                                    editor.apply();
+
                                 }
                             });
                         }

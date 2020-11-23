@@ -6,9 +6,14 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_send"
             android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Copied History" />
     </group>
+    <!--
     <item android:title="Communicate">
         <menu>
             <item
@@ -17,4 +22,5 @@
                 android:title="About" />
         </menu>
     </item>
+    -->
 </menu>

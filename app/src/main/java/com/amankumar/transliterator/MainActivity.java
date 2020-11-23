@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.icu.text.Transliterator;
 import android.os.Build;
 import android.os.Bundle;
@@ -114,6 +115,16 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 }
                             });
                         }
+
+                        SharedPreferences prefs = getSharedPreferences("Copied", MODE_PRIVATE);
+                        int idName = prefs.getInt("index", 0);
+                        idName++;
+                        SharedPreferences.Editor editor = getSharedPreferences("Copied", MODE_PRIVATE).edit();
+                        editor.putString("original"+String.valueOf(idName),spinner.getSelectedItem().toString());
+                        editor.putString("text"+String.valueOf(idName), text.getText().toString());
+                        editor.putInt("index", idName);
+                        editor.apply();
+
                         TextView Languagename = (TextView) convertView.findViewById(R.id.textView);
                         Languagename.setText(arrayListDetails.get(position).language);
 

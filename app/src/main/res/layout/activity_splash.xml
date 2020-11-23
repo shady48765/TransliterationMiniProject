@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottie_namaste"
         android:id="@+id/lottie_lady"
-        android:text="NAMASTE"
+        android:text="WELCOME"
 
         app:layout_constraintBottom_toBottomOf="parent"
         />
